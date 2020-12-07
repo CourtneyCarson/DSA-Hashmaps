@@ -1,5 +1,5 @@
 class HashMap {
-  constructor(initialCapacity=8) {
+  constructor(initialCapacity=5) {
       this.length = 0;
       this._hashTable = [];
       this._capacity = initialCapacity;
@@ -22,7 +22,8 @@ class HashMap {
       //Find the slot where this key should be in
       const index = this._findSlot(key);
 
-      if(!this._hashTable[index]){
+    if (!this._hashTable[index]) {
+        // console.log(index)
           this.length++;
       }
       this._hashTable[index] = {
@@ -89,3 +90,15 @@ class HashMap {
 }
 
 module.exports = HashMap;
+
+
+
+// the math in the set function : length of 9 entries 
+// max ratio 50%
+// set load ratio to length + any flagged deleted 
+// add 1
+// divide by capacity 
+// 24 - this gives you the load ratio
+// if that is higher that 50% it will run the resize fucntion
+// take the capacity 24 times the size ratio 
+
